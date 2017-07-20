@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<CaseType>
+	<name>Staff Record</name>
+	<ActivityTypes>
+		<ActivityType>
+			<name>Open Case</name>
+			<max_instances>1</max_instances>
+		</ActivityType>
+		<ActivityType>
+			<name>Contract acceptance</name>
+			<max_instances>1</max_instances>
+		</ActivityType>
+		<ActivityType>
+			<name>Annual appraisal</name>
+		</ActivityType>
+		<ActivityType>
+			<name>Exit interview</name>
+			<max_instances>1</max_instances>
+		</ActivityType>
+		<ActivityType>
+			<name>Change Case Type</name>
+		</ActivityType>
+		<ActivityType>
+			<name>Change Case Status</name>
+		</ActivityType>
+		<ActivityType>
+			<name>Change Case Start Date</name>
+		</ActivityType>
+		<ActivityType>
+			<name>Link Cases</name>
+		</ActivityType>
+	</ActivityTypes>
+	<ActivitySets>
+		<ActivitySet>
+			<name>standard_timeline</name>
+			<label>Standard Timeline</label>
+			<timeline>true</timeline>
+			<ActivityTypes>
+				<ActivityType>
+					<name>Open Case</name>
+					<status>Completed</status>
+				</ActivityType>
+				<ActivityType>
+					<name>Contract acceptance</name>
+					<reference_activity>Open Case</reference_activity>
+					<reference_offset>1</reference_offset>
+				</ActivityType>
+				<ActivityType>
+					<name>Annual appraisal</name>
+					<reference_activity>Open Case</reference_activity>
+					<reference_offset>365</reference_offset>
+					<reference_select>newest</reference_select>
+				</ActivityType>
+			</ActivityTypes>
+		</ActivitySet>
+	</ActivitySets>
+	<CaseRoles>
+		<RelationshipType>
+			<name>HR Manager</name>
+			<creator>1</creator>
+		</RelationshipType>
+		<RelationshipType>
+			<name>Line Manager</name>
+		</RelationshipType>
+	</CaseRoles>
+</CaseType>
